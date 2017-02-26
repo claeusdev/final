@@ -1,10 +1,14 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_store, only: [:show, :edit, :update, :destroy, :home]
 
   # GET /stores
   # GET /stores.json
   def index
     @stores = Store.all
+  end
+
+  def home
   end
 
   # GET /stores/1
@@ -25,7 +29,7 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
-
+    @store.user_id = current_user.id
     respond_to do |format|
       if @store.save
         format.html { redirect_to @store, notice: 'Store was successfully created.' }
