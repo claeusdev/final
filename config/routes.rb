@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'pages/sell'
 
-  resources :stores
+  resources :stores, path: "s", except: [:index, :new, :create]
 
 
   devise_for :users

@@ -22,6 +22,7 @@
             <div class="panel-body">
 							<% if @user.store %>
 								<%= link_to "Visit Store", store_path(@user.store) %>
+								<%= link_to "Add Product", new_product_path %>
 							<% else %>
 								<%= link_to "Start Selling", pages_sell_path %>
 							<% end %>

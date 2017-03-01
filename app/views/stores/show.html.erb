@@ -43,44 +43,20 @@
 
         </div><!--/col-3-->
         <div class="col-sm-9">
+
           <hr>
           <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <div class="thumbnail">
-                <img src="http://placehold.it/500x250/EEE">
-                <div class="caption">
-                  <a href="#">Iphone 7s Plus</a>
-                  <p>$900</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <div class="thumbnail">
-                <img src="http://placehold.it/500x250/EEE">
-                <div class="caption">
-                  <a href="#">Iphone 7s Plus</a>
-                  <p>$900</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <div class="thumbnail">
-                <img src="http://placehold.it/500x250/EEE">
-                <div class="caption">
-                  <a href="#">Iphone 7s Plus</a>
-                  <p>$900</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <div class="thumbnail">
-                <img src="http://placehold.it/500x250/EEE">
-                <div class="caption">
-                  <a href="#">Iphone 7s Plus</a>
-                  <p>$900</p>
-                </div>
-              </div>
-            </div>
+						<% @store.products.each do |product| %>
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="thumbnail">
+									<img src="http://placehold.it/500x250/EEE">
+									<div class="caption">
+										<a href="#"><%= link_to product.name, product_path(product) %></a>
+										<p><%= number_to_currency(product.price) %></p>
+									</div>
+								</div>
+							</div>
+						<% end %>
           </div>
         </div>
     </div><!--/row-->

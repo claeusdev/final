@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226231849) do
+ActiveRecord::Schema.define(version: 20170301012054) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170226231849) do
     t.integer  "store_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_products_on_slug"
     t.index ["store_id"], name: "index_products_on_store_id"
   end
 
@@ -28,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170226231849) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_stores_on_slug"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
